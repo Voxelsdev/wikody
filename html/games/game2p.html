@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="../../css/gameboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body class="noselect">
+
+    <div class="#607d8b blue-grey" id="container">
+      <div class="row">
+
+        <div class="col s4 m4 l4 offset-s1 offset-m1 offset-l1 noselect" >
+          <p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span class="players">Player 1</span></p>
+        </div>
+
+        <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2 noselect" >
+          <p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span class="players">Player 2</span></p>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3">
+          <h2 class="header"></h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="center" id="cat1"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <h2 class="header"></h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="center" id="cat2"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <h2 class="header"></h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="center" id="cat3"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <h2 class="header"></h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="center" id="cat4"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <h2 class="header"></h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="center" id="cat5"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <h2 class="header"></h2>
+          <div class="card horizontal">
+            <div class="card-stacked">
+              <div class="card-content">
+                <p class="center" id="cat6"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt1">200</a>
+            <div id="divArt1" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col2" href="#divArt2">200</a>
+            <div id="divArt2" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col3" href="#divArt3">200</a>
+            <div id="divArt3" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col4" href="#divArt4">200</a>
+            <div id="divArt4" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col5" href="#divArt5">200</a>
+            <div id="divArt5" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col6" href="#divArt6">200</a>
+            <div id="divArt6" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt7">400</a>
+            <div id="divArt7" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col2" href="#divArt8">400</a>
+            <div id="divArt8" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col3" href="#divArt9">400</a>
+            <div id="divArt9" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col4" href="#divArt10">400</a>
+            <div id="divArt10" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col5" href="#divArt11">400</a>
+            <div id="divArt11" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col6" href="#divArt12">400</a>
+            <div id="divArt12" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt13">600</a>
+            <div id="divArt13" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col2" href="#divArt14">600</a>
+            <div id="divArt14" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col3" href="#divArt15">600</a>
+            <div id="divArt15" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col4" href="#divArt16">600</a>
+            <div id="divArt16" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col5" href="#divArt17">600</a>
+            <div id="divArt17" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col6" href="#divArt18">600</a>
+            <div id="divArt18" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt19">800</a>
+            <div id="divArt18" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col2" href="#divArt20">800</a>
+            <div id="divArt20" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col3" href="#divArt21">800</a>
+            <div id="divArt21" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col4" href="#divArt22">800</a>
+            <div id="divArt22" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col5" href="#divArt23">800</a>
+            <div id="divArt23" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col6" href="#divArt24">800</a>
+            <div id="divArt24" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt25">1000</a>
+            <div id="divArt25" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col2" href="#divArt26">1000</a>
+            <div id="divArt26" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col3" href="#divArt27">1000</a>
+            <div id="divArt27" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col4" href="#divArt28">1000</a>
+            <div id="divArt28" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col5" href="#divArt29">1000</a>
+            <div id="divArt29" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s1 m1 l1">
+          <div class="modal-button-container">
+            <a class="modal-trigger waves-effect waves-light btn col6" href="#divArt30">1000</a>
+            <div id="divArt30" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <p class="article-question">A bunch of text</p>
+              </div>
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col s6 m6 l6">
+                    <input type="text" class="answer-submit" placeholder="The answer is 42">
+                  </div>
+                  <div class="col s6 m6 l6">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="../../js/main.js"></script>
+  </body>
+</html>
