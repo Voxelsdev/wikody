@@ -1,6 +1,6 @@
-Welcome to wikody!
+Welcome to Wikody!
 
-It's a jeapordy-based game using Wikipedia.
+A jeapordy-based game using Wikipedia's API.
 
 Here is a link to my running example:
   https://tylermiller-wikody-project.surge.sh
