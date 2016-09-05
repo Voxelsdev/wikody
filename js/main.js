@@ -1,3 +1,9 @@
+//create a category
+//create an object, push into and array
+//.name = category;
+//.articlesRemaining = 5;
+//decrement each time a cateogry gets an article
+
 $( document ).ready(function() {
   let categories = [  'Classics', 'Critical theory', 'Cultural anthropology', 'Folklore', 'Food culture', 'Food and drink', 'Languages',
                       'Literature', 'Museology', 'Mythology', 'Philosophy', 'Popular culture', 'Science and culture', 'Traditions',
@@ -63,35 +69,44 @@ $( document ).ready(function() {
                       'Nuclear technology', 'Software engineering', 'Structural engineering', 'Systems engineering', 'Automobiles', 'Aviation',
                       'Cycling', 'Public transport', 'Rail transport', 'Road transport', 'Shipping', 'Spaceflight', 'Vehicles', 'Water transport'];
   let sentences = [];
-  let failedArticles = [];
+  let currentCategories = [];
   let cats = 0;
 
   function randomCategory() {
     return categories[ Math.floor( Math.random() * 469 ) ];
   }
 
-  function pushToModal(question, category){
-    console.log(':p');
+  function pushToModal(question, category, answer){
+     for (let i = 0; i < currentCategories.length; i++) {
+       if(currentCategories[i].name === category && currentCategories[i].articlesRemaining) {
+         let $currentTab = $(`#row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}`);
+         $currentTab.text(question);
+         let $hiddenAnwer = $(`<p id='row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}Answer'>`);
+         $hiddenAnwer.css('display', 'none');
+         $hiddenAnwer.text(answer);
+         $currentTab.append($hiddenAnwer);
+         currentCategories[i].articlesRemaining--;
+       }
+     }
   }
 
   function getFirstSentence(contentData, category, articleName){
     let extract = contentData.query.pages[Object.keys(contentData.query.pages)[0]].extract;
 
-    if(typeof extract !== 'undefined' && articleName.indexOf('This article') === -1){
+    if(typeof extract !== 'undefined' && articleName.indexOf('This article') === -1) {
       let firstSentence = extract.substring(0, extract.indexOf('.') + 1);
-      let fixedFirstSentence = firstSentence.toLowerCase().replace(articleName.toLowerCase(),
-                                                              '_'.repeat(articleName.length));
+      let lowerCased = firstSentence.toLowerCase();
+      let fixedFirstSentence = lowerCased.replace(articleName.toLowerCase(), '_'.repeat(articleName.length));
 
       sentences.push(firstSentence);
       $('.determinate').css('width', ((sentences.length / 30) * 100) + '%');
-      pushToModal(fixedFirstSentence, category);
+      pushToModal(fixedFirstSentence, category, articleName);
     } else {
       getRandomArticleInCat(category);
     }
-    console.log(sentences.length);
   }
 
-  function getRandomArticleText(rawData, category){
+  function getRandomArticleText(rawData, category) {
     let articleName = rawData.trim().substring(rawData.indexOf('<title>') + 7, rawData.indexOf('</title>') - 35);
 
     if(articleName.indexOf(':') > -1 || articleName.startsWith('List of')) {
@@ -110,7 +125,6 @@ $( document ).ready(function() {
   }
 
   function getRandomArticleInCat(category) {
-    console.log(category);
     let $randomArticle = $.get(`https://en.wikipedia.org/wiki/Special:RandomInCategory/${category}`);
 
     $randomArticle.done(function(rawData){
@@ -131,11 +145,20 @@ $( document ).ready(function() {
   (function setUp(){
     for(cats = 0; cats < 6; cats++) {
       let currentCategory = randomCategory();
-
+      currentCategories.push({
+        name : currentCategory,
+        col : cats + 1,
+        articlesRemaining : 5
+      });
       $(`#cat${cats + 1}`).text(currentCategory);
       get5Articles(currentCategory);
     }
   })();
 
+  function checkAnswer(event){
+    
+  }
+
   $('.modal-trigger').leanModal();
+  $('.answer-submit').on('click', checkAnswer);
  });
