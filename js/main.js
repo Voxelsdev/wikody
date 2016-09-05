@@ -70,12 +70,21 @@ $( document ).ready(function() {
     return categories[ Math.floor( Math.random() * 469 ) ];
   }
 
-  function getFirstSentence(contentData, category){
+  function pushToModal(question, category){
+    console.log(':p');
+  }
+
+  function getFirstSentence(contentData, category, articleName){
     let extract = contentData.query.pages[Object.keys(contentData.query.pages)[0]].extract;
-    if(typeof extract !== 'undefined'){
+
+    if(typeof extract !== 'undefined' && articleName.indexOf('This article') === -1){
       let firstSentence = extract.substring(0, extract.indexOf('.') + 1);
-      console.log(firstSentence);
+      let fixedFirstSentence = firstSentence.toLowerCase().replace(articleName.toLowerCase(),
+                                                              '_'.repeat(articleName.length));
+
       sentences.push(firstSentence);
+      $('.determinate').css('width', ((sentences.length / 30) * 100) + '%');
+      pushToModal(fixedFirstSentence, category);
     } else {
       getRandomArticleInCat(category);
     }
@@ -85,13 +94,13 @@ $( document ).ready(function() {
   function getRandomArticleText(rawData, category){
     let articleName = rawData.trim().substring(rawData.indexOf('<title>') + 7, rawData.indexOf('</title>') - 35);
 
-    if(articleName.indexOf(':') > -1 || articleName.startsWith('List of') || articleName.indexOf('This article') > -1) {
+    if(articleName.indexOf(':') > -1 || articleName.startsWith('List of')) {
       getRandomArticleInCat(category);
     } else {
       let $article = $.getJSON(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exsectionformat=wiki&titles=${articleName}&callback=?`);
 
       $article.done(function(contentData){
-        getFirstSentence(contentData, category);
+        getFirstSentence(contentData, category, articleName);
       });
 
       $article.fail(function(err){
@@ -119,14 +128,14 @@ $( document ).ready(function() {
     }
   }
 
-  for(cats = 0; cats < 6; cats++) {
-    let currentCategory = randomCategory();
+  (function setUp(){
+    for(cats = 0; cats < 6; cats++) {
+      let currentCategory = randomCategory();
 
-    $(`#cat${cats + 1}`).text(currentCategory);
-
-    get5Articles(currentCategory);
-
-  }
+      $(`#cat${cats + 1}`).text(currentCategory);
+      get5Articles(currentCategory);
+    }
+  })();
 
   $('.modal-trigger').leanModal();
  });
