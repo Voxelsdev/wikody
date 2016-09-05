@@ -62,49 +62,71 @@ $( document ).ready(function() {
                       'Civil engineering', 'Electrical engineering', 'Environmental engineering', 'Materials science', 'Mechanical engineering',
                       'Nuclear technology', 'Software engineering', 'Structural engineering', 'Systems engineering', 'Automobiles', 'Aviation',
                       'Cycling', 'Public transport', 'Rail transport', 'Road transport', 'Shipping', 'Spaceflight', 'Vehicles', 'Water transport'];
+  let sentences = [];
+  let failedArticles = [];
+  let cats = 0;
 
   function randomCategory() {
     return categories[ Math.floor( Math.random() * 469 ) ];
   }
 
-  for(let i = 0; i < 6; i++) {
+  function getFirstSentence(contentData, category){
+    let extract = contentData.query.pages[Object.keys(contentData.query.pages)[0]].extract;
+    if(typeof extract !== 'undefined'){
+      let firstSentence = extract.substring(0, extract.indexOf('.') + 1);
+      console.log(firstSentence);
+      sentences.push(firstSentence);
+    } else {
+      getRandomArticleInCat(category);
+    }
+    console.log(sentences.length);
+  }
 
-    let category = randomCategory();
-    $(`#cat${i + 1}`).text(category);
+  function getRandomArticleText(rawData, category){
+    let articleName = rawData.trim().substring(rawData.indexOf('<title>') + 7, rawData.indexOf('</title>') - 35);
 
-    for(let j = 0; j < 5; j++) {
+    if(articleName.indexOf(':') > -1 || articleName.startsWith('List of') || articleName.indexOf('This article') > -1) {
+      getRandomArticleInCat(category);
+    } else {
+      let $article = $.getJSON(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exsectionformat=wiki&titles=${articleName}&callback=?`);
 
-      let $randomArticle = $.get(`https://en.wikipedia.org/wiki/Special:RandomInCategory/${category}`);
-
-      $randomArticle.fail(function(err){});
-
-      $randomArticle.done(function(data) {
-
-        let articleName = data.trim().substring(data.indexOf('<title>') + 7, data.indexOf('</title>') - 35);
-
-        if(articleName.indexOf(':') > -1 || articleName.startsWith('List of')) {
-
-          //console.log('Bad article!');
-          j--;
-
-        } else {
-
-          let $article = $.getJSON(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exsectionformat=wiki&titles=${articleName}&callback=?`);
-          //console.log(i, j, category, articleName);
-          $article.done(function(data){
-            let extract = data.query.pages[Object.keys(data.query.pages)[0]].extract;
-            let firstSentence = extract.substring(0, extract.indexOf('.') + 1);
-            //console.log('CATEGORY: ' + category, "ARTICLENAME: " + articleName);
-            console.log(i * j);
-          });
-
-          $article.fail(function(err){
-            console.log(err);
-          })
-        }
+      $article.done(function(contentData){
+        getFirstSentence(contentData, category);
       });
+
+      $article.fail(function(err){
+        console.log(err);
+      })
     }
   }
-   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+
+  function getRandomArticleInCat(category) {
+    console.log(category);
+    let $randomArticle = $.get(`https://en.wikipedia.org/wiki/Special:RandomInCategory/${category}`);
+
+    $randomArticle.done(function(rawData){
+      getRandomArticleText(rawData, category);
+    });
+
+    $randomArticle.fail(function(err){
+      console.log(err);
+    });
+  }
+
+  function get5Articles(currentCategory){
+    for(let i = 0; i < 5; i++) {
+      getRandomArticleInCat(currentCategory);
+    }
+  }
+
+  for(cats = 0; cats < 6; cats++) {
+    let currentCategory = randomCategory();
+
+    $(`#cat${cats + 1}`).text(currentCategory);
+
+    get5Articles(currentCategory);
+
+  }
+
   $('.modal-trigger').leanModal();
  });

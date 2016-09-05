@@ -1,10 +1,20 @@
-body {
-  height: 1000vh;
+html, body {
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 .players {
   font-size: 25px;
-  font-family: 'Roboto', sans-serif;
+}
+
+.card-content {
+  font-size: 9px;
 }
 
 .modal-trigger {
