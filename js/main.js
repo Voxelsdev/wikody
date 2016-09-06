@@ -71,6 +71,9 @@ $( document ).ready(function() {
   let sentences = [];
   let currentCategories = [];
   let cats = 0;
+  let currentPlayer = 1;
+  let turnNumber = 1;
+  let numPlayers = $('#playerContainer').children().length;
 
   function randomCategory() {
     return categories[ Math.floor( Math.random() * 469 ) ];
@@ -81,10 +84,12 @@ $( document ).ready(function() {
        if(currentCategories[i].name === category && currentCategories[i].articlesRemaining) {
          let $currentTab = $(`#row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}`);
          $currentTab.text(question);
+         let $hiddenAnwerContainer = $('<div class="hiddenAnswer">');
          let $hiddenAnwer = $(`<p id='row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}Answer'>`);
          $hiddenAnwer.css('display', 'none');
          $hiddenAnwer.text(answer);
-         $currentTab.append($hiddenAnwer);
+         $hiddenAnwerContainer.append($hiddenAnwer);
+         $currentTab.parent('.modal-content').append($hiddenAnwerContainer);
          currentCategories[i].articlesRemaining--;
        }
      }
@@ -120,6 +125,8 @@ $( document ).ready(function() {
 
       $article.fail(function(err){
         console.log(err);
+        getRandomArticleInCat(category);
+        console.log('Fixed! :D');
       })
     }
   }
@@ -133,6 +140,8 @@ $( document ).ready(function() {
 
     $randomArticle.fail(function(err){
       console.log(err);
+      getRandomArticleInCat(category);
+      console.log('Fixed! :D');
     });
   }
 
@@ -155,10 +164,36 @@ $( document ).ready(function() {
     }
   })();
 
-  function checkAnswer(event){
+  function givePoints(player, num){
     
   }
 
+  function nextPlayer(correct){
+    if(turnNumber === 3 || correct){
+      turnNumber = 1;
+      if(currentPlayer === numPlayers){
+        currentPlayer = 1;
+      } else {
+        currentPlayer++;
+      }
+      $(`#player${currentPlayer}`).css('background-color', 'darker');
+    } else {
+      turnNumber++;
+    }
+  }
+
+  function checkAnswer(event){
+    let answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text();
+    let guess = $(event.target).parents('.modal-footer').find('.answer-submit').val();
+    if(answer.toLowerCase() === guess.toLowerCase()){
+      let points = $(event.target).parents('.modal-button-container').find('.modal-trigger').text();
+      givePoints(currentPlayer, parseInt(points));
+      nextPlayer(true);
+    } else {
+      nextPlayer(false);
+    }
+  }
+
   $('.modal-trigger').leanModal();
-  $('.answer-submit').on('click', checkAnswer);
+  $('.modal-action').on('click', checkAnswer);
  });
