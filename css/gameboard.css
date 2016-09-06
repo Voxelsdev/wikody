@@ -37,6 +37,13 @@ html, body {
   user-select: none;
 }
 
+.players {
+  font-size: 15px;
+}
+
+.horizontal {
+  background-color: white;
+}
 #infoContainer {
   background-color: #212a34;
   color: white;
@@ -45,8 +52,13 @@ html, body {
 }
 
 #gameInfo {
-
+  font-family: 'Orbitron', sans-serif;
   font-size: 20px;
+}
+
+#playerContainer {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
 }
 
 #container {

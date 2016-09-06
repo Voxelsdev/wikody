@@ -83,9 +83,10 @@ $( document ).ready(function() {
      for (let i = 0; i < currentCategories.length; i++) {
        if(currentCategories[i].name === category && currentCategories[i].articlesRemaining) {
          let $currentTab = $(`#row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}`);
-         $currentTab.text(question);
          let $hiddenAnwerContainer = $('<div class="hiddenAnswer">');
          let $hiddenAnwer = $(`<p id='row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}Answer'>`);
+
+         $currentTab.text(question);
          $hiddenAnwer.css('display', 'none');
          $hiddenAnwer.text(answer);
          $hiddenAnwerContainer.append($hiddenAnwer);
@@ -165,17 +166,13 @@ $( document ).ready(function() {
   })();
 
   function givePoints(player, num){
-    
+    $(`#score${player}`).text(parseInt($(`#score${player}`).text()) + num);
   }
 
   function nextPlayer(correct){
     if(turnNumber === 3 || correct){
       turnNumber = 1;
-      if(currentPlayer === numPlayers){
-        currentPlayer = 1;
-      } else {
-        currentPlayer++;
-      }
+      currentPlayer === numPlayers ? currentPlayer = 1 : currentPlayer++;
       $(`#player${currentPlayer}`).css('background-color', 'darker');
     } else {
       turnNumber++;
@@ -183,13 +180,19 @@ $( document ).ready(function() {
   }
 
   function checkAnswer(event){
-    let answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text();
-    let guess = $(event.target).parents('.modal-footer').find('.answer-submit').val();
-    if(answer.toLowerCase() === guess.toLowerCase()){
-      let points = $(event.target).parents('.modal-button-container').find('.modal-trigger').text();
-      givePoints(currentPlayer, parseInt(points));
+    let answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text().toLowerCase();
+    let guess = $(event.target).parents('.modal-footer').find('.answer-submit').val().toLowerCase();
+
+    if(answer === guess){
+      let points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
+
+      $('#infoContainer').css('color', 'green');
+      $('#gameInfo').text('Correct! Points to the smart one!');
+      givePoints(currentPlayer, points);
       nextPlayer(true);
     } else {
+      $('#infoContainer').css('color', 'red');
+      $('#gameInfo').text(`Incorrect :( Player${currentPlayer} gets ${4 - turnNumber} more tries.`);
       nextPlayer(false);
     }
   }
