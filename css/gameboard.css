@@ -1,5 +1,5 @@
 html, body {
-  height: 100vh;
+  height: 110vh;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -38,12 +38,15 @@ html, body {
 }
 
 .players {
+  width: 100%;
+  height: 100%;
   font-size: 15px;
 }
 
 .horizontal {
   background-color: white;
 }
+
 #infoContainer {
   background-color: #212a34;
   color: white;
@@ -58,7 +61,7 @@ html, body {
 
 #playerContainer {
   font-family: 'Orbitron', sans-serif;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 #container {
