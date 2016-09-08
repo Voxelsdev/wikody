@@ -161,22 +161,23 @@ $(document).ready(function() {
   function checkAnswer(event) {
     const answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text().toLowerCase();
     const guess = $(event.target).parents('.modal-footer').find('.answer-submit').val().toLowerCase();
+
     if (guess === '') {
       $('#infoContainer').css('color', 'orange');
       $('#gameInfo').text(`Player${currentPlayer}, you guessed nothing! That's not a good way to live your life. Please reconsider.`);
     } else if (answer === guess || guess === '42') {
-        const points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
+      const points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
 
-        $(event.target).parents('.modal-button-container').find('.modal-trigger').text('0');
-        $(event.target).parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
-        $('#infoContainer').css('color', 'green');
-        $('#gameInfo').text('Correct! Points to the smart one!');
-        givePoints(currentPlayer, points);
-        nextPlayer(true);
-      } else {
-        $('#infoContainer').css('color', 'red');
-        $('#gameInfo').text(`Incorrect :( Player${currentPlayer} gets ${3 - turnNumber} more tries.`);
-        nextPlayer(false);
+      $(event.target).parents('.modal-button-container').find('.modal-trigger').text('0');
+      $(event.target).parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
+      $('#infoContainer').css('color', 'green');
+      $('#gameInfo').text('Correct! Points to the smart one!');
+      givePoints(currentPlayer, points);
+      nextPlayer(true);
+    } else {
+      $('#infoContainer').css('color', 'red');
+      $('#gameInfo').text(`Incorrect :( Player${currentPlayer} gets ${3 - turnNumber} more tries.`);
+      nextPlayer(false);
       }
   }
 
