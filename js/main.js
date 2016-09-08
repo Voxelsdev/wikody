@@ -12,6 +12,65 @@ $(document).ready(function() {
   let currentPlayer = 1;
   let turnNumber = 1;
 
+  (function makePlayers(num) {
+    for (let i = 1; i <= num; i++) {
+      if (num === 2) {
+        if (i === 1) {
+          var $mainCol = $('<div class="col s4 offset-s2 noselect">');
+        } else {
+          var $mainCol = $('<div class="col s4 noselect">');
+        }
+      } else if (num === 3) {
+        if (i === 1) {
+          var $mainCol = $('<div class="col s2 offset-s2 noselect">');
+        } else {
+          var $mainCol = $('<div class="col s2 offset-s1 noselect">');
+        }
+      } else {
+        if (i === 1) {
+          var $mainCol = $('<div class="col s2 offset-s2 noselect">');
+        } else {
+          var $mainCol = $('<div class="col s2 noselect">');
+        }
+      }
+      const $mainRow = $('<div class="row">');
+      const $nameRow = $mainRow;
+      const $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3" id="player${i}"><span class="players">Player ${i}</span></p>`)
+      const $scorRow = $mainRow;
+      const $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span id="score${i}">0000</span></p>`);
+
+      $nameRow.append($player);
+      $scorRow.append($score);
+      $mainRow.append($nameRow);
+      $mainRow.append($scorRow);
+      $mainCol.append($mainRow);
+      $('#playerContainer').append($mainCol);
+    }
+  })(parseInt(localStorage.numPlayerDivs));
+
+  (function makeCats(){
+    const $mainRow = $('<div class="row">');
+
+    for (let i = 1; i <= 6; i++) {
+      if (i === 1) {
+        var $mainCol = $('<div class="col s1 offset-s3">');
+      } else {
+        var $mainCol = $('<div class="col s1">');
+      }
+      const $cHoriz = $('<div class="card horizontal">');
+      const $cStacked = $(`<div class="card-stacked" id="category${i}">`);
+      const $cContent = $('<div class="card-content">');
+      const $center = $(`<p class="center" id="cat${i}"></p>`);
+
+      $cContent.append($center);
+      $cStacked.append($cContent);
+      $cHoriz.append($cStacked);
+      $mainCol.append($cHoriz);
+      $mainRow.append($mainCol);
+    }
+    $('#cardCats').append($mainRow);
+  })();
+
   (function makeModals() {
     let currentID = 0;
 
@@ -78,7 +137,7 @@ $(document).ready(function() {
   function getFirstSentence(contentData, category, articleName) {
     const extract = contentData.query.pages[Object.keys(contentData.query.pages)[0]].extract;
 
-    if (typeof extract !== 'undefined' && articleName.indexOf('This article') === -1) {
+    if (typeof extract !== 'undefined' && articleName.indexOf('This article') === -1 && articleName.toLowerCase().indexOf('this is a list') === -1) {
       const firstSentence = extract.substring(0, extract.indexOf('.') + 1);
       const lowerCased = firstSentence.toLowerCase();
       const fixedFirstSentence = lowerCased.replace(articleName.toLowerCase(), '_'.repeat(articleName.length));
@@ -183,7 +242,7 @@ $(document).ready(function() {
 
   (function fixCatHeights() {
     const catCards = $('.category');
-    const maxCatHeight = 0;
+    let maxCatHeight = 0;
 
     for (let i = 1; i < 7; i++) {
       const height = $(`#category${i}`).height();
