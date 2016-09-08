@@ -10,6 +10,7 @@ $(document).ready(function() {
   const numPlayers = localStorage.numPlayerDivs;
   let cats = 0;
   let currentPlayer = 1;
+  let headingPlayer = 2;
   let turnNumber = 1;
 
   (function makePlayers(num) {
@@ -17,27 +18,37 @@ $(document).ready(function() {
       if (num === 2) {
         if (i === 1) {
           var $mainCol = $('<div class="col s4 offset-s2 noselect">');
+          var $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3" id="player${i}"><span class="players">Player ${i}</span></p>`);
+          var $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span id="score${i}">0000</span></p>`);
         } else {
           var $mainCol = $('<div class="col s4 noselect">');
+          var $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey darken-3" id="player${i}"><span class="players">Player ${i}</span></p>`);
+          var $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey darken-3"><span id="score${i}">0000</span></p>`);
         }
       } else if (num === 3) {
         if (i === 1) {
           var $mainCol = $('<div class="col s2 offset-s2 noselect">');
+          var $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3" id="player${i}"><span class="players">Player ${i}</span></p>`);
+          var $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span id="score${i}">0000</span></p>`);
         } else {
           var $mainCol = $('<div class="col s2 offset-s1 noselect">');
+          var $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey darken-3" id="player${i}"><span class="players">Player ${i}</span></p>`);
+          var $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey darken-3"><span id="score${i}">0000</span></p>`);
         }
       } else {
         if (i === 1) {
           var $mainCol = $('<div class="col s2 offset-s2 noselect">');
+          var $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3" id="player${i}"><span class="players">Player ${i}</span></p>`);
+          var $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span id="score${i}">0000</span></p>`);
         } else {
           var $mainCol = $('<div class="col s2 noselect">');
+          var $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey darken-3" id="player${i}"><span class="players">Player ${i}</span></p>`);
+          var $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey darken-3"><span id="score${i}">0000</span></p>`);
         }
       }
-      const $mainRow = $('<div class="row">');
+      const $mainRow = $('<div class="row" id="player-container-row">');
       const $nameRow = $mainRow;
-      const $player = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3" id="player${i}"><span class="players">Player ${i}</span></p>`)
       const $scorRow = $mainRow;
-      const $score = $(`<p class="z-depth-3 center #b0bec5 blue-grey lighten-3"><span id="score${i}">0000</span></p>`);
 
       $nameRow.append($player);
       $scorRow.append($score);
@@ -57,7 +68,7 @@ $(document).ready(function() {
       } else {
         var $mainCol = $('<div class="col s1">');
       }
-      const $cHoriz = $('<div class="card horizontal blue-grey darken-1">');
+      const $cHoriz = $('<div class="card horizontal blue-grey lighten-1">');
       const $cStacked = $(`<div class="card-stacked" id="category${i}">`);
       const $cContent = $('<div class="card-content">');
       const $center = $(`<p class="center" id="cat${i}"></p>`);
@@ -84,11 +95,6 @@ $(document).ready(function() {
         } else {
           var $mainCol = $(`<div class="col s1">`);
         }
-        const $modalContainer = $(`<div class="modal-button-container">`);
-        const $modalActivator = $(`<a class="modal-trigger waves-effect waves-light btn col${j}" href="#divArt${currentID}">${i * 200}</a>`);
-        const $modalType = $(`<div id="divArt${currentID}" class="modal modal-fixed-footer">`);
-        const $modalContent = $(`<div class="modal-content">`);
-        const $articleQuestion = $(`<p class="article-question" id="row${i}col${j}">Loading...</p>`);
         const $modalFooter = $(`<div class="modal-footer">`);
         const $modalFooterRow = $(`<div class="row">`);
         const $inputCol = $(`<div class="col s3 offset-s1">`);
@@ -97,6 +103,11 @@ $(document).ready(function() {
         const $checkAnswer = $(`<a class="modal-action modal-close waves-effect waves-light btn blue-grey darken-1">\u2705</a>`);
         const $forfeitCol = $(`<div class="col s3">`);
         const $forfeitButton = $(`<a class="waves-effect waves-light btn forfeit blue-grey darken-1">!?</a>`);
+        const $modalContainer = $(`<div class="modal-button-container">`);
+        const $modalActivator = $(`<a class="modal-trigger waves-effect waves-light btn col${j}" href="#divArt${currentID}">${i * 200}</a>`);
+        const $modalType = $(`<div id="divArt${currentID}" class="modal modal-fixed-footer">`);
+        const $modalContent = $(`<div class="modal-content">`);
+        const $articleQuestion = $(`<p class="article-question" id="row${i}col${j}">Loading...</p>`);
 
         $forfeitCol.append($forfeitButton);
         $checkCol.append($checkAnswer);
@@ -209,13 +220,21 @@ $(document).ready(function() {
   }
 
   function nextPlayer(correct) {
-    console.log(numPlayers);
     if (turnNumber === 3 || correct) {
-      console.log(numPlayers);
       turnNumber = 1;
-      currentPlayer >= numPlayers ? currentPlayer = 1 : currentPlayer++;
+      $(`#player${currentPlayer}`).removeClass('lighten-3');
+      $(`#player${currentPlayer}`).addClass('darken-3');
+      $(`#score${currentPlayer}`).parent().removeClass('lighten-3');
+      $(`#score${currentPlayer}`).parent().addClass('darken-3');
 
-      // $(`#player${currentPlayer}`).css('background-color', 'darker');
+      $(`#player${headingPlayer}`).removeClass('darken-3');
+      $(`#player${headingPlayer}`).addClass('lighten-3');
+      $(`#score${headingPlayer}`).parent().removeClass('darken-3');
+      $(`#score${headingPlayer}`).parent().addClass('lighten-3');
+
+      currentPlayer >= numPlayers ? currentPlayer = 1 : currentPlayer++;
+      headingPlayer >= numPlayers ? headingPlayer = 1 : headingPlayer++;
+
     } else {
       turnNumber++;
     }
