@@ -209,8 +209,6 @@ $(document).ready(function() {
       $(`#cat${cats + 1}`).text(currentCategory);
       get5Articles(currentCategory);
     }
-
-    //  window.setTimeOut(wikiAlert, 10000);
   })();
 
   function givePoints(player, num) {
@@ -276,8 +274,9 @@ $(document).ready(function() {
   })();
 
   function forfeitPoints(event) {
-    const answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text();
-    const $articleQuestion = $(event.target).parents('.modal-button-container').find('.article-question');
+    const $target = $(event.target);
+    const answer = $target.parents('.modal-fixed-footer').find('.hiddenAnswer').text();
+    const $articleQuestion = $target.parents('.modal-button-container').find('.article-question');
     const currentQuestion = $articleQuestion.text();
     const beforeAnswer = currentQuestion.substring(0, currentQuestion.indexOf('_'));
     const afterAnswer = currentQuestion.substring(currentQuestion.lastIndexOf('_') + 1);
@@ -286,9 +285,9 @@ $(document).ready(function() {
     const $underlinedAnswer = $(`<p class="${artQuestionClass}" id="${artQuestionId}">${beforeAnswer}<span style="text-decoration: underline">${answer}</span>${afterAnswer}</p>`);
 
     $articleQuestion.remove();
-    $(event.target).parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
-    $(event.target).parents('.modal-fixed-footer').find('.modal-content').append($underlinedAnswer);
-    $(event.target).parents('.modal-button-container').find('.modal-trigger').text('0');
+    $target.parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
+    $target.parents('.modal-fixed-footer').find('.modal-content').append($underlinedAnswer);
+    $target.parents('.modal-button-container').find('.modal-trigger').text('0');
     Materialize.toast(answer, 4000);
     $('#infoContainer').css('color', 'orange');
     $('#gameInfo').text(`Player${currentPlayer} forfeited! No points awarded.`);
