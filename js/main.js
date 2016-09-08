@@ -1,108 +1,43 @@
-//create a category
-//create an object, push into and array
-//.name = category;
-//.articlesRemaining = 5;
-//decrement each time a cateogry gets an article
+$(document).ready(function() {
+  const categories = ['Classics', 'Critical theory', 'Cultural anthropology', 'Folklore', 'Food culture', 'Food and drink', 'Languages', 'Literature', 'Museology', 'Mythology', 'Philosophy', 'Popular culture', 'Science and culture', 'Traditions', 'Celebrity', 'Censorship in the arts', 'Festivals', 'Literature', 'Museums', 'Parties', 'Poetry', 'Circus', 'Dance', 'Film', 'Music', 'Opera', 'Storytelling', 'Theatre', 'Architecture', 'Comics', 'Crafts', 'Design', 'Drawing', 'Film', 'Animation', 'New media art', 'Painting', 'Photography', 'Sculpture', 'Board games', 'Card games', 'Dolls', 'Puppetry', 'Puzzles', 'Role-playing games', 'Video games', 'Air sports', 'American football', 'Association football', 'Auto racing', 'Baseball Basketball', 'Boating', 'Boxing', 'Canoeing', 'Cricket', 'Cycling', 'Exercise', 'Fishing', 'Golf', 'Gymnastics', 'Hobbies', 'Horse racing', 'Ice hockey', 'Lacrosse', 'Olympic Games', 'Rugby league', 'Rugby union', 'Sailing', 'Skiing', 'Swimming', 'Tennis', 'Track and field', 'Walking trails', 'Water sports', 'Whitewater sports', 'Broadcasting', 'Film', 'Internet', 'Magazines', 'Newspapers', 'Publications', 'Publishing', 'Television', 'Radio', 'Earth', 'World', 'Bodies of water', 'Cities', 'Communities', 'Continents', 'Countries', 'Deserts', 'Lakes', 'Landforms', 'Mountains', 'Navigation', 'Oceans', 'Populated places', 'Protected areas', 'Regions', 'Rivers', 'Territories', 'Towns', 'Villages', 'Health promotion', 'Life extension', 'Prevention', 'Sleep', 'Skin Care', 'Dietary supplements', 'Dietetics', 'Nutrients', 'Amino acids', 'Minerals', 'Nootropics', 'Phytochemicals', 'Vitamins', 'Nutritional advice pyramids', 'Cycling', 'Exercise equipment', 'Exercise instructors', 'Dancing', 'Exercise physiology', 'Hiking', 'Pilates', 'Running', 'Sports', 'Swimming', 'Walking', 'Weight training exercises', 'Yoga', 'Cleaning', 'Oral hygiene', 'Mental health', 'Psychotherapy', 'Health by country', 'Healthcare', 'Health law', 'Health promotion', 'Health standards', 'Hospitals', 'Occupational safety and health', 'Pharmaceutical industry', 'Pharmaceuticals policy', 'Safety', 'Clinical research', 'Epidemiology', 'Midwifery', 'Nursing', 'Nutrition', 'Optometry', 'Pharmacy', 'Public health', 'Alternative medicine', 'Cardiology', 'Endocrinology', 'Forensics', 'Gastroenterology', 'Geriatrics', 'Gerontology', 'Gynecology', 'Hematology', 'Nephrology', 'Neurology', 'Obstetrics', 'Oncology', 'Ophthalmology', 'Orthopedic surgical procedures', 'Pathology', 'Pediatrics', 'Psychiatry', 'Rheumatology', 'Surgery', 'Urology', 'Orthodontics', 'Veterinary medicine', 'Africa', 'Asia', 'Europe', 'America', 'North America', 'South America', 'Central Europe', 'Middle East', 'Oceania', 'Empires', 'Mathematics education', 'Equations', 'Heuristics', 'Measurement', 'Numbers', 'Proofs', 'Theorems', 'Arithmetic', 'Algebra', 'Geometry', 'Trigonometry', 'Mathematical analysis', 'Calculus', 'Deductive reasoning', 'Inductive reasoning', 'History of logic', 'Logical fallacies', 'Metalogic', 'Philosophy of logic', 'Computational science', 'Operations research', 'Theoretical physics', 'Analysis of variance', 'Bayesian statistics', 'Categorical data', 'Covariance and correlation', 'Data analysis', 'Decision theory', 'Design of experiments', 'Logic and statistics', 'Multivariate statistics', 'Parametric statistics', 'Regression analysis', 'Sampling', 'Statistical theory', 'Stochastic processes', 'Summary statistics', 'Survival analysis', 'Time series analysis', 'Uncertainty of numbers', 'Botany', 'Ecology', 'Health sciences', 'Medicine', 'Neuroscience', 'Zoology', 'Atmospheric sciences', 'Geography', 'Geology', 'Geophysics', 'Oceanography', 'Animals', 'Environment', 'Humans', 'Life', 'Natural resources', 'Plants', 'Pollution', 'Astronomy', 'Chemistry', 'Climate', 'Physics', 'Space', 'Universe', 'Scientists', 'Beginners and newcomers', 'Biographies', 'Children', 'Heads of state', 'Humans', 'Legal categories of people', 'Men', 'Old age', 'Political people', 'Rivalry', 'Social groups', 'Subcultures', 'Women', 'Lists of people', 'Personal timelines', 'Activists', 'Actors', 'Astronauts', 'Billionaires', 'Chief executives', 'Composers', 'Cyborgs', 'Defectors', 'Generals', 'Humanitarians', 'Innovators', 'Inventors', 'Monarchs', 'Musicians', 'Musical groups', 'Philosophers', 'Photographers', 'Politicians', 'Presidents', 'Princes', 'Princesses', 'Revolutionaries', 'Scientists', 'Settlers', 'Singers', 'Slaves', 'People associated with war', 'Writers', 'Alter egos', 'Consciousness studies', 'Clothing', 'Employment', 'Entertainment', 'Food and drink', 'Games', 'Health', 'Hobbies', 'Home', 'Income', 'Interpersonal relationships', 'Leisure', 'Love', 'Motivation', 'Personal development', 'Pets', 'Branches', 'Movements', 'Concepts', 'Theories', 'Arguments', 'Philosophers', 'Literature', 'History', 'By region', 'Aesthetics', 'Epistemology', 'Ethics', 'Logic', 'Metaphysics', 'Social philosophy', 'Attention', 'Cognition', 'Cognitive biases', 'Creativity', 'Decision theory', 'Emotion', 'Error', 'Imagination', 'Intelligence researchers', 'Learning', 'Perception', 'Problem solving', 'Psychological adjustment', 'Psychometrics', 'Qualities of thought', 'Agriculture', 'Agronomy', 'Architecture', 'Automation', 'Biotechnology', 'Cartography', 'Chemical engineering', 'Communication', 'Media studies', 'Telecommunications', 'Construction', 'Control theory', 'Design', 'Digital divide', 'Earthquake engineering', 'Energy', 'Ergonomics', 'Firefighting', 'Fire prevention', 'Forensics', 'Forestry', 'Industry', 'Information science', 'Internet', 'Management', 'Manufacturing', 'Marketing', 'Medicine', 'Unsolved problems in neuroscience', 'Metalworking', 'Microtechnology', 'Military science', 'Mining', 'Nanotechnology', 'Nuclear technology', 'Optics', 'Plumbing', 'Robotics', 'Sound technology', 'Technology forecasting', 'Tools', 'Artificial intelligence', 'Classes of computers', 'Companies', 'Computer architecture', 'Computer model', 'Computer engineering', 'Computer science', 'Computer security', 'Computing and society', 'Data', 'Embedded systems', 'Free software', 'Human–computer interaction', 'Information systems', 'Information technology', 'Internet', 'Mobile Web', 'Languages', 'Multimedia', 'Networks', 'Industrial Networks', 'Operating systems', 'Product lifecycle management', 'Programming', 'Real-time computing', 'Software', 'Software engineering', 'Unsolved problems in computer science', 'Avionics', 'Circuits', 'Companies', 'Consumer electronics', 'Digital electronics', 'Digital media', 'Electrical components', 'Electronic design', 'Electronics manufacturing', 'Embedded systems', 'Integrated circuits', 'Microwave technology', 'Molecular electronics', 'Water technology', 'Optoelectronics', 'Quantum electronics', 'Radio-frequency identification RFID', 'Radio electronics', 'Semiconductors', 'Signal cables', 'Surveillance', 'Telecommunications', 'Terminology', 'Aerospace engineering', 'Chemical engineering', 'Civil engineering', 'Electrical engineering', 'Environmental engineering', 'Materials science', 'Mechanical engineering', 'Nuclear technology', 'Software engineering', 'Structural engineering', 'Systems engineering', 'Automobiles', 'Aviation', 'Cycling', 'Public transport', 'Rail transport', 'Road transport', 'Shipping', 'Spaceflight', 'Vehicles', 'Water transport'];
 
-$( document ).ready(function() {
-  let categories = [  'Classics', 'Critical theory', 'Cultural anthropology', 'Folklore', 'Food culture', 'Food and drink', 'Languages',
-                      'Literature', 'Museology', 'Mythology', 'Philosophy', 'Popular culture', 'Science and culture', 'Traditions',
-                      'Celebrity', 'Censorship in the arts', 'Festivals', 'Literature', 'Museums', 'Parties', 'Poetry',
-                      'Circus', 'Dance', 'Film', 'Music', 'Opera', 'Storytelling', 'Theatre', 'Architecture', 'Comics', 'Crafts', 'Design',
-                      'Drawing', 'Film', 'Animation', 'New media art', 'Painting', 'Photography', 'Sculpture', 'Board games', 'Card games',
-                      'Dolls', 'Puppetry', 'Puzzles', 'Role-playing games', 'Video games', 'Air sports', 'American football', 'Association football',
-                      'Auto racing', 'Baseball Basketball', 'Boating', 'Boxing', 'Canoeing', 'Cricket', 'Cycling', 'Exercise', 'Fishing',
-                      'Golf', 'Gymnastics', 'Hobbies', 'Horse racing', 'Ice hockey', 'Lacrosse', 'Olympic Games', 'Rugby league',
-                      'Rugby union', 'Sailing', 'Skiing', 'Swimming', 'Tennis', 'Track and field', 'Walking trails', 'Water sports',
-                      'Whitewater sports', 'Broadcasting', 'Film', 'Internet', 'Magazines', 'Newspapers', 'Publications', 'Publishing', 'Television', 'Radio',
-                      'Earth', 'World', 'Bodies of water', 'Cities', 'Communities', 'Continents', 'Countries', 'Deserts', 'Lakes', 'Landforms',
-                      'Mountains', 'Navigation', 'Oceans', 'Populated places', 'Protected areas', 'Regions', 'Rivers', 'Subterranea', 'Territories',
-                      'Towns', 'Villages', 'Health promotion', 'Life extension', 'Prevention', 'Sleep', 'Skin Care', 'Dietary supplements',
-                      'Dietetics', 'Nutrients', 'Amino acids', 'Minerals', 'Nootropics', 'Phytochemicals', 'Vitamins', 'Nutritional advice pyramids',
-                      'Aerobics', 'Cycling', 'Exercise equipment', 'Exercise instructors', 'Dancing',
-                      'Exercise physiology', 'Hiking', 'Pilates', 'Running', 'Sports', 'Swimming', 'Walking', 'Weight training exercises', 'Yoga',
-                      'Cleaning', 'Oral hygiene', 'Mental health', 'Psychotherapy', 'Health by country', 'Healthcare', 'Health law', 'Health promotion',
-                      'Health standards', 'Hospitals', 'Occupational safety and health', 'Pharmaceutical industry', 'Pharmaceuticals policy', 'Safety',
-                      'Clinical research', 'Epidemiology', 'Midwifery', 'Nursing', 'Nutrition', 'Optometry', 'Pharmacy', 'Public health',
-                      'Alternative medicine', 'Cardiology', 'Endocrinology', 'Forensics', 'Gastroenterology', 'Geriatrics',
-                      'Gerontology', 'Gynecology', 'Hematology', 'Nephrology', 'Neurology', 'Obstetrics', 'Oncology', 'Ophthalmology',
-                      'Orthopedic surgical procedures', 'Pathology', 'Pediatrics', 'Psychiatry', 'Rheumatology', 'Surgery', 'Urology',
-                      'Orthodontics', 'Veterinary medicine', 'Africa', 'Asia', 'Europe', 'America', 'North America',
-                      'South America', 'Central Europe', 'Middle East', 'Oceania', 'Empires', 'Mathematics education', 'Equations', 'Heuristics',
-                      'Measurement', 'Numbers', 'Proofs', 'Theorems', 'Arithmetic', 'Algebra', 'Geometry', 'Trigonometry', 'Mathematical analysis', 'Calculus',
-                      'Deductive reasoning', 'Inductive reasoning', 'History of logic', 'Logical fallacies', 'Metalogic', 'Philosophy of logic',
-                      'Computational science', 'Operations research', 'Theoretical physics', 'Analysis of variance', 'Bayesian statistics', 'Categorical data',
-                      'Covariance and correlation', 'Data analysis', 'Decision theory', 'Design of experiments', 'Logic and statistics', 'Multivariate statistics',
-                      'Non-parametric statistics', 'Parametric statistics', 'Regression analysis', 'Sampling', 'Statistical theory', 'Stochastic processes',
-                      'Summary statistics', 'Survival analysis', 'Time series analysis', 'Uncertainty of numbers', 'Botany', 'Ecology', 'Health sciences',
-                      'Medicine', 'Neuroscience', 'Zoology', 'Atmospheric sciences', 'Geography', 'Geology', 'Geophysics', 'Oceanography',
-                      'Animals', 'Environment', 'Humans', 'Life', 'Natural resources', 'Plants', 'Pollution', 'Astronomy', 'Chemistry',
-                      'Climate', 'Physics', 'Space', 'Universe', 'Scientists', 'Beginners and newcomers', 'Biographies', 'Children',
-                      'Heads of state', 'Humans', 'Legal categories of people', 'Men', 'Old age', 'Political people', 'Rivalry', 'Social groups',
-                      'Subcultures', 'Women', 'Lists of people', 'Personal timelines', 'Activists', 'Actors', 'Astronauts', 'Billionaires',
-                      'Chief executives', 'Composers', 'Cyborgs', 'Defectors', 'Generals', 'Humanitarians', 'Innovators', 'Inventors', 'Monarchs',
-                      'Musicians', 'Musical groups', 'Philosophers', 'Photographers', 'Politicians', 'Presidents', 'Princes', 'Princesses',
-                      'Revolutionaries', 'Scientists', 'Settlers', 'Singers', 'Slaves', 'People associated with war', 'Writers',
-                      'Alter egos', 'Consciousness studies', 'Clothing', 'Employment', 'Entertainment', 'Food and drink', 'Games',
-                      'Health', 'Hobbies', 'Home', 'Income', 'Interpersonal relationships', 'Leisure', 'Love', 'Motivation', 'Personal development', 'Pets',
-                      'Branches', 'Schools and traditions', 'Movements', 'Concepts', 'Theories', 'Arguments', 'Philosophers', 'Literature',
-                      'History', 'By region', 'Aesthetics', 'Epistemology', 'Ethics', 'Logic', 'Metaphysics', 'Social philosophy',
-                      'Attention', 'Cognition', 'Cognitive biases', 'Creativity', 'Decision theory', 'Emotion', 'Error', 'Imagination',
-                      'Intelligence researchers', 'Learning', 'Perception', 'Problem solving', 'Psychological adjustment', 'Psychometrics',
-                      'Qualities of thought', 'Agriculture', 'Agronomy', 'Architecture', 'Automation', 'Biotechnology', 'Cartography',
-                      'Chemical engineering', 'Communication', 'Media studies', 'Telecommunications', 'Construction', 'Control theory',
-                      'Design', 'Digital divide', 'Earthquake engineering', 'Energy', 'Ergonomics', 'Firefighting', 'Fire prevention',
-                      'Forensics', 'Forestry', 'Industry', 'Information science', 'Internet', 'Management', 'Manufacturing', 'Marketing',
-                      'Medicine', 'Unsolved problems in neuroscience', 'Metalworking', 'Microtechnology', 'Military science', 'Mining',
-                      'Nanotechnology', 'Nuclear technology', 'Optics', 'Plumbing', 'Robotics', 'Sound technology', 'Technology forecasting',
-                      'Tools', 'Artificial intelligence', 'Classes of computers', 'Companies', 'Computer architecture', 'Computer model',
-                      'Computer engineering', 'Computer science', 'Computer security', 'Computing and society', 'Data', 'Embedded systems',
-                      'Free software', 'Human–computer interaction', 'Information systems', 'Information technology', 'Internet', 'Mobile Web',
-                      'Languages', 'Multimedia', 'Networks', 'Industrial Networks', 'Operating systems', 'Product lifecycle management',
-                      'Programming', 'Real-time computing', 'Software', 'Software engineering', 'Unsolved problems in computer science',
-                      'Avionics', 'Circuits', 'Companies', 'Consumer electronics', 'Digital electronics',
-                      'Digital media', 'Electrical components', 'Electronic design', 'Electronics manufacturing', 'Embedded systems',
-                      'Integrated circuits', 'Microwave technology', 'Molecular electronics', 'Water technology', 'Optoelectronics', 'Quantum electronics',
-                      'Radio-frequency identification RFID', 'Radio electronics', 'Semiconductors', 'Signal cables', 'Surveillance',
-                      'Telecommunications', 'Terminology', 'Aerospace engineering', 'Bioengineering', 'Chemical engineering',
-                      'Civil engineering', 'Electrical engineering', 'Environmental engineering', 'Materials science', 'Mechanical engineering',
-                      'Nuclear technology', 'Software engineering', 'Structural engineering', 'Systems engineering', 'Automobiles', 'Aviation',
-                      'Cycling', 'Public transport', 'Rail transport', 'Road transport', 'Shipping', 'Spaceflight', 'Vehicles', 'Water transport'];
-  let sentences = [];
-  let currentCategories = [];
+  function randomCategory() {
+    return categories[Math.floor(Math.random() * 454)];
+  }
+
+  const sentences = [];
+  const currentCategories = [];
+  const numPlayers = $('#playerContainer').children().length;
   let cats = 0;
   let currentPlayer = 1;
   let turnNumber = 1;
-  let numPlayers = $('#playerContainer').children().length;
 
-  (function makeModals(){
-    let $body = $('body');
+  (function makeModals() {
     let currentID = 0;
 
-    for(let i = 1; i <= 5; i++){
+    for (let i = 1; i <= 5; i++) {
       let $row = $('<div class="row"></div>');
 
-      for(let j = 1; j <= 6; j++){
+      for (let j = 1; j <= 6; j++) {
         currentID++;
-        console.log(i,j,currentID);
-        if(j === 1){
+        if (j === 1) {
           var $mainCol = $(`<div class="col s1 offset-s3">`);
         } else {
           var $mainCol = $(`<div class="col s1">`);
         }
-        let $modalContainer = $(`<div class="modal-button-container">`);
-        let $modalActivator = $(`<a class="modal-trigger waves-effect waves-light btn col${j}" href="divArt${currentID}">${i * 200}</a>`);
-        let $modalType = $(`<div id="divArt${currentID}" class="modal modal-fixed-footer">`);
-        let $modalContent = $(`<div class="modal-content">`);
-        let $articleQuestion = $(`<p class="article-question" id="row${i}col${j}">Loading...</p>`);
-        let $modalFooter = $(`<div class="modal-footer">`);
-        let $modalFooterRow = $(`<div class="row">`);
-        let $inputCol = $(`<div class="col s3 offset-s1">`);
-        let $input = $(`<input type="text" class="answer-submit" placeholder="The answer is 42" autofocus>`);
-        let $checkCol = $(`<div class="col s3">`);
-        let $checkAnswer = $(`<a class="modal-action modal-close waves-effect waves-green btn-flat">Check My Answer</a>`);
-        let $forfeitCol = $(`<div class="col s3">`);
-        let $forfeitButton = $(`<a class="modal-action modal-close waves-effect waves-green btn-flat forfeit">I give up, What's the answer??</a>`);
+        const $modalContainer = $(`<div class="modal-button-container">`);
+        const $modalActivator = $(`<a class="modal-trigger waves-effect waves-light btn col${j}" href="#divArt${currentID}">${i * 200}</a>`);
+        const $modalType = $(`<div id="divArt${currentID}" class="modal modal-fixed-footer">`);
+        const $modalContent = $(`<div class="modal-content">`);
+        const $articleQuestion = $(`<p class="article-question" id="row${i}col${j}">Loading...</p>`);
+        const $modalFooter = $(`<div class="modal-footer">`);
+        const $modalFooterRow = $(`<div class="row">`);
+        const $inputCol = $(`<div class="col s3 offset-s1">`);
+        const $input = $(`<input type="text" class="answer-submit" placeholder="The answer is 42" autofocus>`);
+        const $checkCol = $(`<div class="col s3">`);
+        const $checkAnswer = $(`<a class="modal-action modal-close waves-effect waves-green btn-flat"></a>`);
+        const $forfeitCol = $(`<div class="col s3">`);
+        const $forfeitButton = $(`<a class="modal-action modal-close waves-effect waves-green btn-flat forfeit">I give up, What's the answer??</a>`);
 
         $forfeitCol.append($forfeitButton);
         $checkCol.append($checkAnswer);
@@ -123,58 +58,30 @@ $( document ).ready(function() {
     }
   })();
 
-  // <div class="row"> // i
-    //<div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3"> // j
-    //  <div class="modal-button-container">
-    //    <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt25">1000</a>
-    //    <div id="divArt25" class="modal modal-fixed-footer">
-    //      <div class="modal-content">
-    //        <p class="article-question" id="row5col1">Loading...</p>
-    //      </div>
-    // //   <div class="modal-footer">
-    //        <div class="row">
-    //          <div class="col s3 m3 l3 offset-s1">
-    //            <input type="text" class="answer-submit" placeholder="The answer is 42">
-    //          </div>
-    //          <div class="col s3 m3 l3">
-    //            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
-    //          </div>
-    //          <div class="col s3 m3 l3">
-    //            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat forfeit">I give up, What''s the answer??</a>
-    //          </div>
-    //        </div>
-    //      </div>
-    //    </div>
-    //  </div>
+  function pushToModal(question, category, answer) {
+    for (let i = 0; i < currentCategories.length; i++) {
+      if (currentCategories[i].name === category && currentCategories[i].articlesRemaining) {
+        const $currentTab = $(`#row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}`);
+        const $hiddenAnwerContainer = $('<div class="hiddenAnswer">');
+        const $hiddenAnwer = $(`<p id='row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}Answer'>`);
 
-  function randomCategory() {
-    return categories[ Math.floor( Math.random() * 469 ) ];
+        $currentTab.text(question);
+        $hiddenAnwer.css('display', 'none');
+        $hiddenAnwer.text(answer);
+        $hiddenAnwerContainer.append($hiddenAnwer);
+        $currentTab.parent('.modal-content').append($hiddenAnwerContainer);
+        currentCategories[i].articlesRemaining--;
+      }
+    }
   }
 
-  function pushToModal(question, category, answer){
-     for (let i = 0; i < currentCategories.length; i++) {
-       if(currentCategories[i].name === category && currentCategories[i].articlesRemaining) {
-         let $currentTab = $(`#row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}`);
-         let $hiddenAnwerContainer = $('<div class="hiddenAnswer">');
-         let $hiddenAnwer = $(`<p id='row${currentCategories[i].articlesRemaining}col${currentCategories[i].col}Answer'>`);
+  function getFirstSentence(contentData, category, articleName) {
+    const extract = contentData.query.pages[Object.keys(contentData.query.pages)[0]].extract;
 
-         $currentTab.text(question);
-         $hiddenAnwer.css('display', 'none');
-         $hiddenAnwer.text(answer);
-         $hiddenAnwerContainer.append($hiddenAnwer);
-         $currentTab.parent('.modal-content').append($hiddenAnwerContainer);
-         currentCategories[i].articlesRemaining--;
-       }
-     }
-  }
-
-  function getFirstSentence(contentData, category, articleName){
-    let extract = contentData.query.pages[Object.keys(contentData.query.pages)[0]].extract;
-
-    if(typeof extract !== 'undefined' && articleName.indexOf('This article') === -1) {
-      let firstSentence = extract.substring(0, extract.indexOf('.') + 1);
-      let lowerCased = firstSentence.toLowerCase();
-      let fixedFirstSentence = lowerCased.replace(articleName.toLowerCase(), '_'.repeat(articleName.length));
+    if (typeof extract !== 'undefined' && articleName.indexOf('This article') === -1) {
+      const firstSentence = extract.substring(0, extract.indexOf('.') + 1);
+      const lowerCased = firstSentence.toLowerCase();
+      const fixedFirstSentence = lowerCased.replace(articleName.toLowerCase(), '_'.repeat(articleName.length));
 
       sentences.push(firstSentence);
       $('.determinate').css('width', ((sentences.length / 30) * 100) + '%');
@@ -185,87 +92,81 @@ $( document ).ready(function() {
   }
 
   function getRandomArticleText(rawData, category) {
-    let articleName = rawData.trim().substring(rawData.indexOf('<title>') + 7, rawData.indexOf('</title>') - 35);
+    const articleName = rawData.trim().substring(rawData.indexOf('<title>') + 7, rawData.indexOf('</title>') - 35);
 
     if(articleName.indexOf(':') > -1 || articleName.startsWith('List of')) {
       getRandomArticleInCat(category);
     } else {
-      let $article = $.getJSON(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exsectionformat=wiki&titles=${articleName}&callback=?`);
+      const $article = $.getJSON(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&exsectionformat=wiki&titles=${articleName}&callback=?`);
 
-      $article.done(function(contentData){
+      $article.done(function(contentData) {
         getFirstSentence(contentData, category, articleName);
       });
 
-      $article.fail(function(err){
-        console.log(err);
+      $article.fail(function() {
         getRandomArticleInCat(category);
-        console.log('Fixed! :D');
-      })
+      });
     }
   }
 
   function getRandomArticleInCat(category) {
-    let $randomArticle = $.get(`https://en.wikipedia.org/wiki/Special:RandomInCategory/${category}`);
+    const $randomArticle = $.get(`https://en.wikipedia.org/wiki/Special:RandomInCategory/${category}`);
 
-    $randomArticle.done(function(rawData){
+    $randomArticle.done(function(rawData) {
       getRandomArticleText(rawData, category);
     });
 
-    $randomArticle.fail(function(err){
-      console.log(err);
+    $randomArticle.fail(function() {
       getRandomArticleInCat(category);
-      console.log('Fixed! :D');
     });
   }
 
-  function get5Articles(currentCategory){
-    for(let i = 0; i < 5; i++) {
+  function get5Articles(currentCategory) {
+    for (let i = 0; i < 5; i++) {
       getRandomArticleInCat(currentCategory);
     }
   }
 
-  function wikiAlert(){
-    if(sentences.length < 30){
-      $('#gameInfo').text('If Wikipedia still has not returned all articles, or seems to be stuck, please refresh the page.');
-    }
-  }
+  (function setUp() {
+    for (cats = 0; cats < 6; cats++) {
+      const currentCategory = randomCategory();
 
-  (function setUp(){
-    for(cats = 0; cats < 6; cats++) {
-      let currentCategory = randomCategory();
       currentCategories.push({
-        name : currentCategory,
-        col : cats + 1,
-        articlesRemaining : 5
+        name: currentCategory,
+        col: cats + 1,
+        articlesRemaining: 5
       });
       $(`#cat${cats + 1}`).text(currentCategory);
       get5Articles(currentCategory);
     }
-    //window.setTimeOut(wikiAlert, 10000);
+
+    //  window.setTimeOut(wikiAlert, 10000);
   })();
 
-  function givePoints(player, num){
+  function givePoints(player, num) {
     $(`#score${player}`).text(parseInt($(`#score${player}`).text()) + num);
   }
 
-  function nextPlayer(correct){
-    if(turnNumber === 3 || correct){
+  function nextPlayer(correct) {
+    if (turnNumber === 3 || correct) {
       turnNumber = 1;
       currentPlayer === numPlayers ? currentPlayer = 1 : currentPlayer++;
+
       // $(`#player${currentPlayer}`).css('background-color', 'darker');
     } else {
       turnNumber++;
     }
   }
 
-  function checkAnswer(event){
-    let answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text().toLowerCase();
-    let guess = $(event.target).parents('.modal-footer').find('.answer-submit').val().toLowerCase();
-    if(guess === ''){
+  function checkAnswer(event) {
+    const answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text().toLowerCase();
+    const guess = $(event.target).parents('.modal-footer').find('.answer-submit').val().toLowerCase();
+    if (guess === '') {
       $('#infoContainer').css('color', 'orange');
       $('#gameInfo').text(`Player${currentPlayer}, you guessed nothing! That's not a good way to live your life. Please reconsider.`);
     } else if (answer === guess || guess === '42') {
-        let points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
+        const points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
+
         $(event.target).parents('.modal-button-container').find('.modal-trigger').text('0');
         $(event.target).parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
         $('#infoContainer').css('color', 'green');
@@ -279,11 +180,13 @@ $( document ).ready(function() {
       }
   }
 
-  (function fixCatHeights(){
-    let catCards = $('.category');
-    let maxCatHeight = 0;
+  (function fixCatHeights() {
+    const catCards = $('.category');
+    const maxCatHeight = 0;
+
     for (let i = 1; i < 7; i++) {
-      let height = $(`#category${i}`).height()
+      const height = $(`#category${i}`).height();
+
       height > maxCatHeight ? maxCatHeight = height : maxCatHeight = maxCatHeight;
     }
     for (let i = 1; i < 7; i++) {
@@ -291,7 +194,7 @@ $( document ).ready(function() {
     }
   })();
 
-  function forfeitPoints(event){
+  function forfeitPoints(event) {
     const answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text();
     const $articleQuestion = $(event.target).parents('.modal-button-container').find('.article-question');
     const currentQuestion = $articleQuestion.text();
@@ -311,4 +214,4 @@ $( document ).ready(function() {
   $('.modal-trigger').leanModal();
   $('.modal-action').on('click', checkAnswer);
   $('.forfeit').on('click', forfeitPoints);
- });
+});
