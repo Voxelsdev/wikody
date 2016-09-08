@@ -7,7 +7,7 @@
 $( document ).ready(function() {
   let categories = [  'Classics', 'Critical theory', 'Cultural anthropology', 'Folklore', 'Food culture', 'Food and drink', 'Languages',
                       'Literature', 'Museology', 'Mythology', 'Philosophy', 'Popular culture', 'Science and culture', 'Traditions',
-                      'Arts and crafts', 'Celebrity', 'Censorship in the arts', 'Festivals', 'Humor', 'Literature', 'Museums', 'Parties', 'Poetry',
+                      'Celebrity', 'Censorship in the arts', 'Festivals', 'Literature', 'Museums', 'Parties', 'Poetry',
                       'Circus', 'Dance', 'Film', 'Music', 'Opera', 'Storytelling', 'Theatre', 'Architecture', 'Comics', 'Crafts', 'Design',
                       'Drawing', 'Film', 'Animation', 'New media art', 'Painting', 'Photography', 'Sculpture', 'Board games', 'Card games',
                       'Dolls', 'Puppetry', 'Puzzles', 'Role-playing games', 'Video games', 'Air sports', 'American football', 'Association football',
@@ -19,15 +19,15 @@ $( document ).ready(function() {
                       'Mountains', 'Navigation', 'Oceans', 'Populated places', 'Protected areas', 'Regions', 'Rivers', 'Subterranea', 'Territories',
                       'Towns', 'Villages', 'Health promotion', 'Life extension', 'Prevention', 'Sleep', 'Skin Care', 'Dietary supplements',
                       'Dietetics', 'Nutrients', 'Amino acids', 'Minerals', 'Nootropics', 'Phytochemicals', 'Vitamins', 'Nutritional advice pyramids',
-                      'Aerobics', 'Bodyweight exercise (Calisthenics)', 'Cycling', 'Exercise equipment', 'Exercise instructors', 'Dancing',
+                      'Aerobics', 'Cycling', 'Exercise equipment', 'Exercise instructors', 'Dancing',
                       'Exercise physiology', 'Hiking', 'Pilates', 'Running', 'Sports', 'Swimming', 'Walking', 'Weight training exercises', 'Yoga',
                       'Cleaning', 'Oral hygiene', 'Mental health', 'Psychotherapy', 'Health by country', 'Healthcare', 'Health law', 'Health promotion',
                       'Health standards', 'Hospitals', 'Occupational safety and health', 'Pharmaceutical industry', 'Pharmaceuticals policy', 'Safety',
-                      'Clinical research', 'Diseases', 'Epidemiology', 'Midwifery', 'Nursing', 'Nutrition', 'Optometry', 'Pharmacy', 'Public health',
-                      'Alternative medicine', 'Cardiology', 'Endocrinology', 'Forensics', 'Gastroenterology', 'Human Genetics', 'Geriatrics',
+                      'Clinical research', 'Epidemiology', 'Midwifery', 'Nursing', 'Nutrition', 'Optometry', 'Pharmacy', 'Public health',
+                      'Alternative medicine', 'Cardiology', 'Endocrinology', 'Forensics', 'Gastroenterology', 'Geriatrics',
                       'Gerontology', 'Gynecology', 'Hematology', 'Nephrology', 'Neurology', 'Obstetrics', 'Oncology', 'Ophthalmology',
                       'Orthopedic surgical procedures', 'Pathology', 'Pediatrics', 'Psychiatry', 'Rheumatology', 'Surgery', 'Urology',
-                      'Dental hygiene', 'Orthodontics', 'Veterinary medicine', 'Africa', 'Asia', 'Europe', 'America', 'North America',
+                      'Orthodontics', 'Veterinary medicine', 'Africa', 'Asia', 'Europe', 'America', 'North America',
                       'South America', 'Central Europe', 'Middle East', 'Oceania', 'Empires', 'Mathematics education', 'Equations', 'Heuristics',
                       'Measurement', 'Numbers', 'Proofs', 'Theorems', 'Arithmetic', 'Algebra', 'Geometry', 'Trigonometry', 'Mathematical analysis', 'Calculus',
                       'Deductive reasoning', 'Inductive reasoning', 'History of logic', 'Logical fallacies', 'Metalogic', 'Philosophy of logic',
@@ -42,25 +42,25 @@ $( document ).ready(function() {
                       'Subcultures', 'Women', 'Lists of people', 'Personal timelines', 'Activists', 'Actors', 'Astronauts', 'Billionaires',
                       'Chief executives', 'Composers', 'Cyborgs', 'Defectors', 'Generals', 'Humanitarians', 'Innovators', 'Inventors', 'Monarchs',
                       'Musicians', 'Musical groups', 'Philosophers', 'Photographers', 'Politicians', 'Presidents', 'Princes', 'Princesses',
-                      'Revolutionaries', 'Scientists', 'Settlers', 'Singers', 'Slaves', 'Victims', 'People associated with war', 'Writers',
+                      'Revolutionaries', 'Scientists', 'Settlers', 'Singers', 'Slaves', 'People associated with war', 'Writers',
                       'Alter egos', 'Consciousness studies', 'Clothing', 'Employment', 'Entertainment', 'Food and drink', 'Games',
                       'Health', 'Hobbies', 'Home', 'Income', 'Interpersonal relationships', 'Leisure', 'Love', 'Motivation', 'Personal development', 'Pets',
                       'Branches', 'Schools and traditions', 'Movements', 'Concepts', 'Theories', 'Arguments', 'Philosophers', 'Literature',
-                      'History', 'By period', 'By region', 'Aesthetics', 'Epistemology', 'Ethics', 'Logic', 'Metaphysics', 'Social philosophy',
+                      'History', 'By region', 'Aesthetics', 'Epistemology', 'Ethics', 'Logic', 'Metaphysics', 'Social philosophy',
                       'Attention', 'Cognition', 'Cognitive biases', 'Creativity', 'Decision theory', 'Emotion', 'Error', 'Imagination',
                       'Intelligence researchers', 'Learning', 'Perception', 'Problem solving', 'Psychological adjustment', 'Psychometrics',
                       'Qualities of thought', 'Agriculture', 'Agronomy', 'Architecture', 'Automation', 'Biotechnology', 'Cartography',
                       'Chemical engineering', 'Communication', 'Media studies', 'Telecommunications', 'Construction', 'Control theory',
                       'Design', 'Digital divide', 'Earthquake engineering', 'Energy', 'Ergonomics', 'Firefighting', 'Fire prevention',
                       'Forensics', 'Forestry', 'Industry', 'Information science', 'Internet', 'Management', 'Manufacturing', 'Marketing',
-                      'Medicine', 'Unsolved problems in neuroscience', 'Metalworking', 'Microtechnology', 'Military science', ',Mining',
+                      'Medicine', 'Unsolved problems in neuroscience', 'Metalworking', 'Microtechnology', 'Military science', 'Mining',
                       'Nanotechnology', 'Nuclear technology', 'Optics', 'Plumbing', 'Robotics', 'Sound technology', 'Technology forecasting',
                       'Tools', 'Artificial intelligence', 'Classes of computers', 'Companies', 'Computer architecture', 'Computer model',
                       'Computer engineering', 'Computer science', 'Computer security', 'Computing and society', 'Data', 'Embedded systems',
                       'Free software', 'Human–computer interaction', 'Information systems', 'Information technology', 'Internet', 'Mobile Web',
-                      'Languages', 'Multimedia', 'Networks', 'Industrial Networks', 'Operating systems', 'Platforms', 'Product lifecycle management',
+                      'Languages', 'Multimedia', 'Networks', 'Industrial Networks', 'Operating systems', 'Product lifecycle management',
                       'Programming', 'Real-time computing', 'Software', 'Software engineering', 'Unsolved problems in computer science',
-                      'Avionics', 'Circuits', 'Companies', 'Connectors', 'Consumer electronics', 'Digital electronics',
+                      'Avionics', 'Circuits', 'Companies', 'Consumer electronics', 'Digital electronics',
                       'Digital media', 'Electrical components', 'Electronic design', 'Electronics manufacturing', 'Embedded systems',
                       'Integrated circuits', 'Microwave technology', 'Molecular electronics', 'Water technology', 'Optoelectronics', 'Quantum electronics',
                       'Radio-frequency identification RFID', 'Radio electronics', 'Semiconductors', 'Signal cables', 'Surveillance',
@@ -74,6 +74,78 @@ $( document ).ready(function() {
   let currentPlayer = 1;
   let turnNumber = 1;
   let numPlayers = $('#playerContainer').children().length;
+
+  (function makeModals(){
+    let $body = $('body');
+    let currentID = 0;
+
+    for(let i = 1; i <= 5; i++){
+      let $row = $('<div class="row"></div>');
+
+      for(let j = 1; j <= 6; j++){
+        currentID++;
+        console.log(i,j,currentID);
+        if(j === 1){
+          var $mainCol = $(`<div class="col s1 offset-s3">`);
+        } else {
+          var $mainCol = $(`<div class="col s1">`);
+        }
+        let $modalContainer = $(`<div class="modal-button-container">`);
+        let $modalActivator = $(`<a class="modal-trigger waves-effect waves-light btn col${j}" href="divArt${currentID}">${i * 200}</a>`);
+        let $modalType = $(`<div id="divArt${currentID}" class="modal modal-fixed-footer">`);
+        let $modalContent = $(`<div class="modal-content">`);
+        let $articleQuestion = $(`<p class="article-question" id="row${i}col${j}">Loading...</p>`);
+        let $modalFooter = $(`<div class="modal-footer">`);
+        let $modalFooterRow = $(`<div class="row">`);
+        let $inputCol = $(`<div class="col s3 offset-s1">`);
+        let $input = $(`<input type="text" class="answer-submit" placeholder="The answer is 42" autofocus>`);
+        let $checkCol = $(`<div class="col s3">`);
+        let $checkAnswer = $(`<a class="modal-action modal-close waves-effect waves-green btn-flat">Check My Answer</a>`);
+        let $forfeitCol = $(`<div class="col s3">`);
+        let $forfeitButton = $(`<a class="modal-action modal-close waves-effect waves-green btn-flat forfeit">I give up, What's the answer??</a>`);
+
+        $forfeitCol.append($forfeitButton);
+        $checkCol.append($checkAnswer);
+        $inputCol.append($input);
+        $modalFooterRow.append($inputCol);
+        $modalFooterRow.append($checkCol);
+        $modalFooterRow.append($forfeitCol);
+        $modalFooter.append($modalFooterRow);
+        $modalContent.append($articleQuestion);
+        $modalType.append($modalContent);
+        $modalType.append($modalFooter);
+        $modalContainer.append($modalActivator);
+        $modalContainer.append($modalType);
+        $mainCol.append($modalContainer);
+        $row.append($mainCol);
+      }
+      $('#articles').append($row);
+    }
+  })();
+
+  // <div class="row"> // i
+    //<div class="col s1 m1 l1 offset-s3 offset-m3 offset-l3"> // j
+    //  <div class="modal-button-container">
+    //    <a class="modal-trigger waves-effect waves-light btn col1" href="#divArt25">1000</a>
+    //    <div id="divArt25" class="modal modal-fixed-footer">
+    //      <div class="modal-content">
+    //        <p class="article-question" id="row5col1">Loading...</p>
+    //      </div>
+    // //   <div class="modal-footer">
+    //        <div class="row">
+    //          <div class="col s3 m3 l3 offset-s1">
+    //            <input type="text" class="answer-submit" placeholder="The answer is 42">
+    //          </div>
+    //          <div class="col s3 m3 l3">
+    //            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Check My Answer</a>
+    //          </div>
+    //          <div class="col s3 m3 l3">
+    //            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat forfeit">I give up, What''s the answer??</a>
+    //          </div>
+    //        </div>
+    //      </div>
+    //    </div>
+    //  </div>
 
   function randomCategory() {
     return categories[ Math.floor( Math.random() * 469 ) ];
@@ -152,6 +224,12 @@ $( document ).ready(function() {
     }
   }
 
+  function wikiAlert(){
+    if(sentences.length < 30){
+      $('#gameInfo').text('If Wikipedia still has not returned all articles, or seems to be stuck, please refresh the page.');
+    }
+  }
+
   (function setUp(){
     for(cats = 0; cats < 6; cats++) {
       let currentCategory = randomCategory();
@@ -163,6 +241,7 @@ $( document ).ready(function() {
       $(`#cat${cats + 1}`).text(currentCategory);
       get5Articles(currentCategory);
     }
+    //window.setTimeOut(wikiAlert, 10000);
   })();
 
   function givePoints(player, num){
@@ -173,7 +252,7 @@ $( document ).ready(function() {
     if(turnNumber === 3 || correct){
       turnNumber = 1;
       currentPlayer === numPlayers ? currentPlayer = 1 : currentPlayer++;
-      $(`#player${currentPlayer}`).css('background-color', 'darker');
+      // $(`#player${currentPlayer}`).css('background-color', 'darker');
     } else {
       turnNumber++;
     }
@@ -182,19 +261,22 @@ $( document ).ready(function() {
   function checkAnswer(event){
     let answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text().toLowerCase();
     let guess = $(event.target).parents('.modal-footer').find('.answer-submit').val().toLowerCase();
-
-    if(answer === guess || guess === '42'){
-      let points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
-
-      $('#infoContainer').css('color', 'green');
-      $('#gameInfo').text('Correct! Points to the smart one!');
-      givePoints(currentPlayer, points);
-      nextPlayer(true);
-    } else {
-      $('#infoContainer').css('color', 'red');
-      $('#gameInfo').text(`Incorrect :( Player${currentPlayer} gets ${4 - turnNumber} more tries.`);
-      nextPlayer(false);
-    }
+    if(guess === ''){
+      $('#infoContainer').css('color', 'orange');
+      $('#gameInfo').text(`Player${currentPlayer}, you guessed nothing! That's not a good way to live your life. Please reconsider.`);
+    } else if (answer === guess || guess === '42') {
+        let points = parseInt($(event.target).parents('.modal-button-container').find('.modal-trigger').text());
+        $(event.target).parents('.modal-button-container').find('.modal-trigger').text('0');
+        $(event.target).parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
+        $('#infoContainer').css('color', 'green');
+        $('#gameInfo').text('Correct! Points to the smart one!');
+        givePoints(currentPlayer, points);
+        nextPlayer(true);
+      } else {
+        $('#infoContainer').css('color', 'red');
+        $('#gameInfo').text(`Incorrect :( Player${currentPlayer} gets ${3 - turnNumber} more tries.`);
+        nextPlayer(false);
+      }
   }
 
   (function fixCatHeights(){
@@ -209,6 +291,24 @@ $( document ).ready(function() {
     }
   })();
 
+  function forfeitPoints(event){
+    const answer = $(event.target).parents('.modal-fixed-footer').find('.hiddenAnswer').text();
+    const $articleQuestion = $(event.target).parents('.modal-button-container').find('.article-question');
+    const currentQuestion = $articleQuestion.text();
+    const beforeAnswer = currentQuestion.substring(0, currentQuestion.indexOf('_'));
+    const afterAnswer = currentQuestion.substring(currentQuestion.lastIndexOf('_') + 1);
+    const artQuestionId = $articleQuestion.attr('id');
+    const artQuestionClass = $articleQuestion.attr('class');
+    const $underlinedAnswer = $(`<p class="${artQuestionClass}" id="${artQuestionId}">${beforeAnswer}<span style="text-decoration: underline">${answer}</span>${afterAnswer}</p>`);
+
+    $articleQuestion.remove();
+    $(event.target).parents('.modal-button-container').find('.modal-trigger').css('background-color', '#fe735f');
+    $(event.target).parents('.modal-fixed-footer').find('.modal-content').append($underlinedAnswer);
+    $(event.target).parents('.modal-button-container').find('.modal-trigger').text('0');
+    nextPlayer(true);
+  }
+
   $('.modal-trigger').leanModal();
   $('.modal-action').on('click', checkAnswer);
+  $('.forfeit').on('click', forfeitPoints);
  });
